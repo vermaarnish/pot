@@ -1,0 +1,47 @@
+#include<bits/stdC++.h>
+using namespace std;
+bool possible(vector<int>&flowerbed,int k)
+{
+    int n=flowerbed.size();
+    int plant_no=k;
+    for(int i=0;i<n;i++)
+    {  
+        if(flowerbed[i]==0)
+        {
+        if(i==0)
+        {
+            if(flowerbed[1]==0)
+              {
+                flowerbed[0]=1;
+                plant_no--;
+              }
+        }
+        else if(i==n-1)
+        {
+            if(flowerbed[i-1]==0)
+             {
+                flowerbed[n-1]=1;
+                plant_no--;
+             }
+        }
+        else
+        {
+            if((flowerbed[i-1]==0)&&(flowerbed[i+1]==0))
+             {
+                flowerbed[i]=1;
+                plant_no--;
+             }
+        } }
+    }
+  if(plant_no<=0)
+   return true;
+  return false;
+}
+int main(){
+  vector<int>flowerbed={1,0,0,0,1};
+  cout<<possible(flowerbed,1)<<" ";
+  cout<<endl;
+  for(auto it:flowerbed)
+   cout<<it<<" ";
+  return 0;
+}
