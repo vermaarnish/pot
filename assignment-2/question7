@@ -1,0 +1,17 @@
+#include<bits/stdC++.h>
+using namespace std;
+  bool check(vector<int>nums)
+  {
+    int n=nums.size();
+    for(int i=1;i<n;i++)
+     {
+        if(!(nums[i]>=nums[i-1]))
+         return false;
+     }
+     return true;
+  }
+int main(){
+  vector<int>num={1,2,2,3};
+  cout<<check(num);
+  return 0;
+}
